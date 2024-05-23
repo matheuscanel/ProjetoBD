@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-5xl mx-auto w-full px-6">
+    <header class="flex items-center justify-between py-8 w-full">
+      <a class="text-3xl font-bold" href="index.html">SuplementosStore</a>
+
+      <a href="produtos.html">Produtos</a>
+    </header>
+    
+    <main class="grid place-items-center w-full h-full">
+      <div class="flex flex-col gap-6 max-w-sm w-full mx-auto">
+        <h1 class="text-lg font-semibold text-center">Avaliar Produto</h1>
+  
+        <form id="avaliar-produto" class="w-full border border-gray-300 p-6 rounded-md flex flex-col gap-3">
+          <div class="flex flex-col gap-1">
+            <label for="nota_avaliacao">Avaliação</label>
+            <input max="5" min="1" class="border border-gray-300 p-2 rounded-md" type="number" name="nota_avaliacao" id="nota_avaliacao">
+          </div>
+  
+          <button type="submit" class="w-full bg-blue-500 p-2 text-white border-none">Avaliar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="avaliar-produto.js"></script>
+
+</body>
+</html>

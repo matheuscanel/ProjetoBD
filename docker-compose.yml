@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: projetobd-canel
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: 'trabalhobancodedados'
+      MYSQL_USER: 'docker'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - projetobd-canel:/var/lib/mysql
+
+volumes:
+  projetobd-canel:
