@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.cesar.bd.trabalho.dao.ProdutoDAO;
 import br.cesar.bd.trabalho.dtos.CriarProdutoDTO;
+import br.cesar.bd.trabalho.dtos.ProdutoComAvaliacoesDTO;
 import br.cesar.bd.trabalho.entidades.Produto;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -28,6 +30,13 @@ public class ProdutoController {
   @GetMapping()
   public List<Produto> buscarTodosProdutos() {
     List<Produto> produtos = produtoDao.buscarProdutos();
+
+    return produtos;
+  }
+
+  @GetMapping("/avaliados")
+  public List<ProdutoComAvaliacoesDTO> buscarProdutosMaisBemAvaliados() {
+    List<ProdutoComAvaliacoesDTO> produtos = produtoDao.buscarProdutosMaisAvaliados();
 
     return produtos;
   }
@@ -46,6 +55,13 @@ public class ProdutoController {
   @PostMapping()
   public ResponseEntity<CriarProdutoDTO> criarProduto(@RequestBody CriarProdutoDTO produtoDto) {
     produtoDao.criar(produtoDto);
+
+    return ResponseEntity.status(HttpStatus.CREATED).body(produtoDto);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<CriarProdutoDTO> atualizarProduto(@RequestBody CriarProdutoDTO produtoDto, @PathVariable Integer id) {
+    produtoDao.atualizar(produtoDto, id);
 
     return ResponseEntity.status(HttpStatus.CREATED).body(produtoDto);
   }

@@ -1,4 +1,5 @@
 const produtoContainer = document.getElementById('produto-container')
+const adicionarProduto = document.getElementById('adicionar-carrinho')
 
 async function buscarProduto() {
   try {
@@ -10,33 +11,72 @@ async function buscarProduto() {
     const responseAvaliacoes = await fetch(`http://localhost:8080/avaliacoes/${id_produto}`)
     const avaliacoes = await responseAvaliacoes.json()
 
-    const html = `
-      <img class="rounded-md h-96" src=${produto.imagem} alt=${produto.nome}>
+    document.getElementById('imagem').setAttribute('src', produto.imagem)
+    document.getElementById('nome').textContent = produto.nome
+    document.getElementById('descricao').textContent = produto.descricao
+    document.getElementById('media_avaliacoes').textContent = "Média das avaliações: " + avaliacoes.media.toFixed(2)
+    document.getElementById('qtd_avaliacoes').textContent = "Quantidade de avaliações: " + avaliacoes.avaliacoes.length
 
-      <div class="flex flex-col justify-between">
-        <h1 class="text-3xl font-bold text-gray-900">${produto.nome}</h1>
-
-        <p class="text-gray-600">${produto.descricao}</p>
-
-        <div class="flex flex-col gap-1">
-          <span class="text-gray-400">Média das avaliações: ${avaliacoes.media.toFixed(2)}</span>
-          <span class="text-gray-400">Quantidade de avaliações: ${avaliacoes.avaliacoes.length}</span>
-        </div>
-
-        <div class="flex gap-6">
-          <button class="bg-blue-500 w-full p-2 text-white border-none rounded-md">Adicionar ao carrinho</button>
-          <a href="avaliar-produto.html?id_produto=${id_produto}" class="w-full p-2 border text-center text-blue-500 border-blue-500 rounded-md">Avaliar</a>
-        </div>
-      </div>
-    `
-
-    produtoContainer.innerHTML = html
   } catch (error) {
     console.log(error)
   }
 }
 
-buscarProduto()
+document.addEventListener('DOMContentLoaded', () => {
+  console.log({adicionarProduto})
+})
+
+buscarProduto().then(() => {
+  if (adicionarProduto) {
+    adicionarProduto.addEventListener('click', async () => {
+      const produto = Number(getParametroUrl("id_produto"))
+
+      const carrinhoId = localStorage.getItem('carrinhoId')
+      const idCliente = Number(localStorage.getItem('clienteId'))
+
+      try {
+        if (carrinhoId) {
+          await fetch('http://localhost:8080/carrinhos/itens', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              fkCliente: idCliente,
+              fkCarrinho: Number(carrinhoId),
+              fkProduto: produto
+            })
+          })
+        } else {
+          const response = await fetch('http://localhost:8080/carrinhos', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+          })
+    
+          const data = await response.json()
+          
+          localStorage.setItem('carrinhoId', data)
+
+          await fetch('http://localhost:8080/carrinhos/itens', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              fkCliente: idCliente,
+              fkCarrinho: data,
+              fkProduto: produto
+            })
+          })
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    })
+  }
+})
 
 function getParametroUrl(parameterName) {
   var result = null,

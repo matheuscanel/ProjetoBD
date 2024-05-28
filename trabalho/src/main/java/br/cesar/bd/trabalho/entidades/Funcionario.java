@@ -7,7 +7,7 @@ public class Funcionario {
   private Integer id_funcionario;
   private String cargo;
 
-  private String fk_Pessoa_cpf;
+  private String fk_pessoa_cpf;
   private Integer fk_funcionario_id_funcionario;
   private Integer fk_funcionario_fk_pessoa_;
 }

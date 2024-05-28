@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-5xl mx-auto w-full px-6">
+    <header class="flex items-center justify-between py-8 w-full">
+      <a class="text-3xl font-bold" href="index.html">SuplementosStore</a>
+
+      <div class="flex items-center gap-3">
+        <a href="carrinho.html">Carrinho</a>
+        <a href="autenticacao/cadastro.html">Cadastro</a>
+      </div>
+    </header>
+    
+    <form id="salvar-pedido" class="grid place-items-center w-full h-full mb-8">
+      <div id="empty" class="flex flex-col gap-6 max-w-sm w-full mx-auto">
+        <h1 class="text-lg font-semibold text-center">Finalizar Pedido</h1>
+
+        <div class="border border-gray-300 p-6 w-full rounded-md flex flex-col gap-3" id="produtos"></div>
+
+        <div class="border border-gray-300 p-6 flex flex-col gap-2 rounded-md">
+          <h2 id="total">Total: </h2>
+
+          <div class="flex flex-col gap-1">
+            <label for="formaPagamento">Forma de Pagamento</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="formaPagamento" id="formaPagamento">
+          </div>
+        </div>
+
+        <button type="submit" class="bg-blue-500 hover:bg-blue-400 transition-colors w-full text-white p-2 rounded-md" type="submit">Salvar pedido</button>
+  
+      </div>
+    </form>
+  </div>
+  <script src="carrinho.js"></script>
+
+</body>
+</html>

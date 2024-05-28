@@ -11,16 +11,36 @@
     <header class="flex items-center justify-between py-8 w-full">
       <a class="text-3xl font-bold" href="index.html">SuplementosStore</a>
 
-      <a href="produtos.html">Produtos</a>
+      <div class="flex items-center gap-3">
+        <a href="carrinho.html">Carrinho</a>
+        <a href="autenticacao/cadastro.html">Cadastro</a>
+      </div>
     </header>
     
     <main class="flex flex-col gap-6">
       <h2 class="text-lg font-semibold">Produto X</h2>
 
       <div id="produto-container" class="grid grid-cols-2 gap-8">
+        <img id="imagem" class="rounded-md h-96">
+
+        <div class="flex flex-col justify-between">
+          <h1 id="nome" class="text-3xl font-bold text-gray-900"></h1>
+  
+          <p id="descricao" class="text-gray-600"></p>
+  
+          <div class="flex flex-col gap-1">
+            <span id="media_avaliacoes" class="text-gray-400"></span>
+            <span id="qtd_avaliacoes" class="text-gray-400"></span>
+          </div>
+  
+          <div class="flex gap-6">
+            <button id="adicionar-carrinho" class="bg-blue-500 w-full p-2 text-white border-none rounded-md">Adicionar ao carrinho</button>
+            <a id="avaliar-botao" href="avaliar-produto.html?id_produto=${id_produto}" class="w-full p-2 border text-center text-blue-500 border-blue-500 rounded-md">Avaliar</a>
+          </div>
+        </div>
       </div>
     </main>
   </div>
-  <script src="produto.js"></script>
 </body>
+<script src="produto.js"></script>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-5xl mx-auto w-full px-6">
+    <header class="flex items-center justify-between py-8 w-full">
+      <a class="text-3xl font-bold" href="../index.html">SuplementosStore</a>
+
+      <div class="flex items-center gap-3">
+        <a href="../carrinho.html">Carrinho</a>
+        <a href="cadastro.html">Cadastro</a>
+      </div>
+    </header>
+    
+    <main class="grid place-items-center w-full h-full">
+      <div class="flex flex-col gap-6 max-w-sm w-full mx-auto">
+        <h1 class="text-lg font-semibold text-center">Cadastre-se</h1>
+  
+        <form id="cadastro" class="w-full border border-gray-300 p-6 rounded-md flex flex-col gap-3">
+          <div class="flex flex-col gap-1">
+            <label for="cpf">CPF</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="cpf" id="cpf">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="nome">Nome</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="nome" id="nome">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="dt_nascimento">Data de Nascimento</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="dt_nascimento" id="dt_nascimento">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="rua">Rua</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="rua" id="rua">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="bairro">Bairro</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="bairro" id="bairro">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="cidade">Cidade</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="cidade" id="cidade">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="estado">Estado</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="estado" id="estado">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="telefones">Telefones</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="telefones" id="telefones">
+            <small>Separe por uma vírgula os telefones</small>
+          </div>
+  
+          <button type="submit" class="w-full bg-blue-500 p-2 text-white border-none">Criar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="cadastro.js"></script>
+
+</body>
+</html>

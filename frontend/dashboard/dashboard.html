@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-5xl mx-auto w-full px-6 mb-8">
+    <header class="flex items-center justify-between py-8 w-full">
+      <a class="text-3xl font-bold" href="../index.html">SuplementosStore</a>
+      
+      <div class="flex gap-3 items-center">
+        <a href="produtos.html">Produtos</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="cadastro-funcionario.html">Cadastrar Funcionário</a>
+      </div>
+    </header>
+    
+    <section class="grid grid-cols-2 gap-8">
+      <div class="bg-green-500 text-white p-4 rounded-md flex flex-col gap-4">
+        <p>Qtd de pedidos</p>
+
+        <strong id="total-pedidos" class="text-3xl">35</strong>
+      </div>
+      <div class="bg-green-500 text-white p-4 rounded-md flex flex-col gap-4">
+        <p>Lucro total</p>
+
+        <strong id="lucro" class="text-3xl">35</strong>
+      </div>
+    </section>
+
+    <section class="flex flex-col gap-6">
+      <h2 class="text-xl font-semibold">Produtos mais avaliados</h2>
+
+      <div id="produtos-mais-avaliados-container" class="grid grid-cols-3 gap-8"></div>
+    </section>
+
+    <section class="flex flex-col gap-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xl font-semibold">Produtos</h2>
+
+        <a class="p-2 border-none rounded-md text-white text-sm bg-blue-500" href="criar-produto.html">Criar Produto</a>
+      </div>
+
+      <table class="caption-bottom text-sm w-full">
+        <thead class="[&_tr]:border-b">
+          <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+            <th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]">ID</th>
+            <th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]">Nome</th>
+            <th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]">Preço</th>
+            <th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]">Descrição</th>
+            <th class="h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-right">Ações</th>
+          </tr>
+        </thead>
+        <tbody class="[&_tr:last-child]:border-0" id="produtos-container">
+          <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+            <td class="p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div id="produtos-container" class="grid grid-cols-3 gap-8">
+
+      </div> -->
+    </section>
+  </div>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

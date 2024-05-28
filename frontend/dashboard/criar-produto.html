@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="flex flex-col gap-8 max-w-5xl mx-auto w-full px-6">
+    <header class="flex items-center justify-between py-8 w-full">
+      <a class="text-3xl font-bold" href="../index.html">SuplementosStore</a>
+
+      <div class="flex gap-3 items-center">
+        <a href="produtos.html">Produtos</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="cadastro-funcionario.html">Cadastrar Funcionário</a>
+      </div>
+    </header>
+    
+    <main class="grid place-items-center w-full h-full">
+      <div class="flex flex-col gap-6 max-w-sm w-full mx-auto">
+        <h1 id="titulo" class="text-lg font-semibold text-center">Criar/Editar Produto</h1>
+  
+        <form id="criar-editar-produto" class="w-full border border-gray-300 p-6 rounded-md flex flex-col gap-3">
+          <div class="flex flex-col gap-1">
+            <label for="nome">Nome</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="nome" id="nome">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="descricao">Descrição</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="descricao" id="descricao">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="preco">Preço</label>
+            <input class="border border-gray-300 p-2 rounded-md" type="number" name="preco" id="preco">
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="imagem">URL da Imagem</label>
+            <input class="border border-gray-300 p-2 rounded-md" name="imagem" id="imagem">
+          </div>
+  
+          <button type="submit" class="w-full bg-blue-500 p-2 text-white border-none">Salvar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="criar-produto.js"></script>
+
+</body>
+</html>
